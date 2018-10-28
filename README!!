@@ -1,0 +1,19 @@
+- Upload seluruh file yang ada pada folder Heroku ke dalam heroku kalian masing-masing
+- Di dalam Heroku:
+	- runtime.txt berisi versi python yg kalian pergunakan
+	- requirement.txt berisi requirement apa saja yang dibutuhkan untuk menjalankan app.py
+	- app.py berisi program yang berperan sebagai server dari line chatbot kalian dan juga berisi fungsi untuk memanggil API dari server lain
+	- API dari server lain menjalankan tugas untuk melakukan read vektor embedding dari database dan menjalankan prediksi berdasarkan model CNN yang telah diperoleh berdasarkan tahapan sebelumnya
+	- pada app.py silahkan ganti channel_secret dan channel_acces_token dengan channel_secret dan channel_acces_token dari Line Developer kalian masing-masing
+	- pada app.py apabila kalian memiliki server sendiri untuk menyimpan database glove-300.sql dan menjalankan proses prediksi, pada bagian api_url, api_port, api_route dapat kalian ganti sesuai dengan serverAPI kalian masing-masing
+
+- Upload seluruh file yang ada dalam ServerAPI ke dalam server kalian (jika ada)
+- Di dalam ServerAPI:
+	- cnn_final_model.h5 merupakan model yang dihasilkan dari menjalankan code CNN dari github
+	- cnn_final_model.h5 dapat diganti dengan model yang telah kalian jalankan
+	- messages.json berisi json dari berbagai kategori pertanyaan beserta jawaban dalam format json
+	- gcloud.py berisi API code yang akan berperan untuk membaca data dari database dan menerima request dari Heroku
+
+- Mengapa dibutuhkan server lain untuk menyimpan glove-300.sql dan model cnn?
+	- Karena kapasitas Heroku yang terbatas sehingga tidak memungkinkan untuk menjalankan proses prediksi dan menyimpan database glove-300.sql (size=1,3GB)
+ 
